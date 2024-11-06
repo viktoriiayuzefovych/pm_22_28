@@ -4,7 +4,7 @@ document.querySelectorAll(".skill-item").forEach((skill) => {
     const width = progress.style.width; // Наприклад, "80%"
   
     progress.style.setProperty("--progress-width", width);
-  });
+});
   document.addEventListener("DOMContentLoaded", function () {
     const skills = document.querySelectorAll(".skill-item");
   
@@ -37,4 +37,43 @@ document.querySelectorAll(".skill-item").forEach((skill) => {
       block.style.maxHeight = "300vh";
     }
   }
-  
+
+  document.addEventListener('DOMContentLoaded', function() {
+    fetch('http://localhost:5000/data')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+           // Робота з секцією 'skills'
+           /*const skillsContainer = document.getElementById('skills');
+           const skillsHTML = data.skills.map(skill => `
+               <div class="skill-item">
+                 <div class="d-flex">
+                   <span class="marker"></span>
+                   <p class="skill">${skill.name}</p>
+                 </div>
+                 <div class="progress-bar">
+                   <div class="progress" style="width: ${skill.progress}"></div>
+                 </div>
+               </div>
+           `).join('');
+           skillsContainer.innerHTML = skillsHTML;*/
+
+           const referencesContainer = document.getElementById('referen');
+           const referencesHTML = data.references.map(ref => `
+                 <div class="first-comp" style="background-color: #425055;">
+                            <h3 style="color: #fff; font-size: 1.3rem; letter-spacing: 0.06rem; text-transform: uppercase;">${ref.name}</h3>
+                            <p>${ref.address}</p>
+                            <span>${ref.phone}</span><a href="tel:+1-970-533-3393">+1-970-533-3393</a> 
+                            <span>${ref.email}</span><a href="https://www.yourwebsite.com">www.yourwebsite.com</a>
+                        </div>
+               </div>
+           `).join('');
+           referencesContainer.innerHTML = referencesHTML;
+ 
+           // Після завантаження даних ініціюємо анімації
+           setProgressWidth();
+           animateSkillBoxVisibility();
+           animateProgressBars();
+           animateShapes();
+   })
+  });
