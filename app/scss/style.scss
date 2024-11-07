@@ -55,6 +55,13 @@ html, body {
     border-radius: 0.28;
     margin-right: 0.5rem;}
 
+.prof{ 
+    font-weight: 800; font-style: italic; font-size: 1.4rem; letter-spacing: 0.06rem;color: #425055;
+}
+
+.prof1{
+    font-weight:300; font-size: 1.4rem; letter-spacing: 0.06rem; color: #425055;
+}
 h1 {
     text-align: left;
     font-size: 5rem;
@@ -391,10 +398,7 @@ th {
 }
 .first-comp h3
 {
-    color: #fff; 
-    font-size: 1.3rem; 
-    letter-spacing: 0.06rem;
-    text-transform: uppercase;
+    color: #fff; font-size: 1.3rem; letter-spacing: 0.06rem; text-transform: uppercase;
 }
 .first-comp p
 {
